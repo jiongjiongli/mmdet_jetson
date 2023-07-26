@@ -28,7 +28,7 @@ val_batch_size_per_gpu = 1
 val_num_workers = 2
 
 # RTMDet 训练过程分成 2 个 stage，第二个 stage 会切换数据增强 pipeline
-num_epochs_stage2 = 5
+stage2_num_epochs = 5
 
 # batch 改变了，学习率也要跟着改变， 0.004 是 8卡x32 的学习率
 base_lr = train_batch_size_per_gpu * 0.004 / (32*8)
@@ -85,7 +85,7 @@ param_scheduler = [
 optim_wrapper = dict(optimizer=dict(lr=base_lr))
 
 # 第二 stage 切换 pipeline 的 epoch 时刻也改变了
-_base_.custom_hooks[1].switch_epoch = max_epochs - num_epochs_stage2
+_base_.custom_hooks[1].switch_epoch = max_epochs - stage2_num_epochs
 
 val_evaluator = dict(ann_file=data_root + 'annotations/test.json')
 test_evaluator = val_evaluator
