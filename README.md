@@ -235,7 +235,7 @@ run.txt
 - "run.txt"为日志。
 - 其他为配置信息。
 
-进一步分析一下其中的可视化结果：
+进一步分析其中的可视化结果：
 
 - pth模型测试可视化结果：![pth文件测试结果可视化](data/test/fine_tuned/ap/output_pytorch.jpg)
 
@@ -308,7 +308,7 @@ None
 
 本次测速报告详情：[点击](data/test/fine_tuned/speed/openmmlab-deploee.oss-cn-shanghai.aliyuncs.com_tmp_profile_speed_62ee51.txt)
 
-# 7 mmdeploy模型转换源码分析
+# 7 MMDeploy模型转换源码分析
 
 ## 7.1 转换命令
 
@@ -363,7 +363,7 @@ python ./tools/deploy.py \
 主流程如下，可见主要有两个部分，`torch2ir(ir_type)`实现把pth模型转换为onnx和`to_backend`用于把onnx模型转换为tensorrt。
 
 ```
-mmdeploy/tools/deploy.py
+# mmdeploy/tools/deploy.py
 
 def main():
 
@@ -424,7 +424,7 @@ def main():
 
 # 8 总结和评估
 
-本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了mmdeploy模型转换功能进行了源码分析，希望对大家深入了解mmdeploy有所帮助。
+本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能进行了源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
 
 # 9 致谢
 
