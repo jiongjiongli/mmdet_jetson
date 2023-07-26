@@ -43,7 +43,7 @@ class CocoFormat:
 
         return annotation_info
 
-def convert(image_dir_path,
+def convert_via_to_coco(image_dir_path,
             via_ann_file_path,
             category_names,
             output_images_dir_path=None,
@@ -175,7 +175,7 @@ def main():
         output_ann_file_name = data_path_info['output_ann_file_name']
         output_ann_file_path = output_ann_dir_path / output_ann_file_name
 
-        convert(image_dir_path,
+        convert_via_to_coco(image_dir_path,
                 via_ann_file_path,
                 category_names,
                 output_images_dir_path=output_images_dir_path,
