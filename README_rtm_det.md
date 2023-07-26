@@ -100,7 +100,12 @@ python tools/test.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py work_dirs/r
 
 
 
-
+```
+[input]
+min_shape = [1, 3, 640, 640]
+opt_shape = [1, 3, 640, 640]
+max_shape = [1, 3, 640, 640]
+```
 
 `mmdeploy/configs/mmdet/detection/detection_tensorrt_static-300x300.py`
 
