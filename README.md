@@ -328,9 +328,15 @@ python ./tools/deploy.py \
     --dump-info
 ```
 
-这里假设`DEPLOY_CFG_PATH=mmdeploy/configs/mmdet/detection/detection_tensorrt_static-300x300.py`
+## 7.2 部署配置信息 (Deploy config)
 
-则`DEPLOY_CFG_PATH`生成的部署配置信息为：
+Deploy config由三部分组成：
+
+- onnx_config：pth转换为onnx的配置信息。
+- backend_config：onnx转化为各种backend格式（如tensorrt）的配置信息。
+- codebase_config：模型推理配置信息。
+
+若`DEPLOY_CFG_PATH=mmdeploy/configs/mmdet/detection/detection_tensorrt_static-300x300.py`，则`DEPLOY_CFG_PATH`生成的deploy config为：
 
 | Key             |                             |                            |       |           | Value              |
 | --------------- | --------------------------- | -------------------------- | ----- | --------- | ------------------ |
@@ -360,7 +366,7 @@ python ./tools/deploy.py \
 |                 |                             | keep_top_k                 |       |           | 100                |
 |                 |                             | background_label_id        |       |           | -1                 |
 
-## 7.2 转换主流程
+## 7.3 转换主流程
 
 主流程如下，可见主要有两个部分，`torch2ir(ir_type)`实现把pth模型转换为onnx和`to_backend`用于把onnx模型转换为tensorrt。
 
@@ -427,6 +433,8 @@ def main():
 # 8 总结和评估
 
 本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能的源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
+
+整个项目最耗时的部分是使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 进行模型测速。因为[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 还存在一些bug，也没有如何针对NVIDIA Jetson平台测速的的use case，所以使用起来不太方便。
 
 # 9 致谢
 
