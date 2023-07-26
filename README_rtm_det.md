@@ -34,8 +34,10 @@ pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --e
 
 pip install mmengine==0.7.1 mmcv==2.0.0rc4
 pip install mmdet==3.0.0rc5
-cd ~/mmdet_jetson/mmdetection
-pip install -e .
+# cd ~/mmdet_jetson/mmdetection
+# pip install -e .
+
+pip install shapely
 
 mkdir ~/mmdet_jetson/model
 wget -P ~/mmdet_jetson/model/ https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth
@@ -55,6 +57,11 @@ mkdir ~/mmdet_jetson/data
 wget -P ~/mmdet_jetson/data/ https://download.openmmlab.com/mmyolo/data/balloon_dataset.zip
 cd ~/mmdet_jetson/data
 unzip balloon_dataset.zip
+
+
+cd ~/mmdet_jetson
+python prepare_data.py
+
 ```
 
 预处理
