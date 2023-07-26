@@ -32,12 +32,19 @@ cd ~/mmdet_jetson
 pip install --upgrade pip
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 
-pip install mmengine==0.7.1 mmcv==2.0.0rc4
+pip install mmengine==0.7.1
+pip install mmcv==2.0.0rc4 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11/index.html
+
+git clone --branch v2.0.0rc4 https://github.com/open-mmlab/mmcv.git
+cd mmcv
+MMCV_WITH_OPS=1 pip install -e .
+
 pip install mmdet==3.0.0rc5
 # cd ~/mmdet_jetson/mmdetection
 # pip install -e .
 
 pip install shapely
+pip install numpy==1.23.1
 
 mkdir ~/mmdet_jetson/model
 wget -P ~/mmdet_jetson/model/ https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth
@@ -71,11 +78,18 @@ ln -s ~/mmdet_jetson/data ~/mmdet_jetson/mmdetection/data
 # 4 模型调优
 
 ```
-cd ~/mmdet_jetson
 cp ~/mmdet_jetson/rtmdet_tiny_1xb12-40e_balloon.py ~/mmdet_jetson/mmdetection/configs/rtmdet/
 
 cd ~/mmdet_jetson/mmdetection
-python tools/test.py ~/mmdet_jetson/mmdetection/configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py
+python tools/test.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py model/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth
+
+cd ~/mmdet_jetson/mmdetection
+python tools/train.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py
+
+
+cd ~/mmdet_jetson/mmdetection
+python tools/test.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py work_dirs/rtmdet_tiny_1xb12-40e_balloon/epoch_40.pth
+
 ```
 
 
