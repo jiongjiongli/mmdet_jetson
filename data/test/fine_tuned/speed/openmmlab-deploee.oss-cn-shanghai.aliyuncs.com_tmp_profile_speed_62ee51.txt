@@ -1,0 +1,115 @@
+========== cmd ==========
+LD_LIBRARY_PATH=/tmp/aarch64-jetson-orin+jetpack5.0.1/install/lib:/tmp/aarch64-jetson-orin+jetpack5.0.1/install/ocv/lib:${LD_LIBRARY_PATH} /tmp/aarch64-jetson-orin+jetpack5.0.1/install/bin/detector --device cuda /tmp/datadir /tmp/datadir/gA61iK.jpg
+========== stdout ==========
+[2023-07-26 20:50:07.940] [mmdeploy] [info] [model.cpp:35] [DirectoryModel] Load model: "/tmp/datadir"
+bbox 0, left=159.03, top=301.96, right=572.47, bottom=681.99, label=0, score=0.9956
+bbox 1, left=465.58, top=18.28, right=976.45, bottom=519.03, label=0, score=0.9922
+========== stderr ==========
+None
+========== analyze ==========
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|            name             | occupy | usage | n_call | t_mean  |  t_50%  |  t_90%  |
++=============================+========+=======+========+=========+=========+=========+
+| ./Pipeline                  | -      | -     | 1      | 102.723 | 102.723 | 102.723 |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|     Preprocess/Compose      | -      | -     | 1      | 7.313   | 7.313   | 7.313   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         LoadImageFromFile   | 0.016  | 0.016 | 1      | 1.622   | 1.622   | 1.622   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         Resize              | 0.011  | 0.011 | 1      | 1.144   | 1.144   | 1.144   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         Pad                 | 0.000  | 0.000 | 1      | 0.018   | 0.018   | 0.018   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         Normalize           | 0.025  | 0.025 | 1      | 2.577   | 2.577   | 2.577   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         Pad                 | 0.000  | 0.000 | 1      | 0.014   | 0.014   | 0.014   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         DefaultFormatBundle | 0.019  | 0.019 | 1      | 1.901   | 1.901   | 1.901   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|         Collect             | 0.000  | 0.000 | 1      | 0.024   | 0.024   | 0.024   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|     rtmdet                  | 0.921  | 0.921 | 1      | 94.585  | 94.585  | 94.585  |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+|     postprocess             | 0.006  | 0.006 | 1      | 0.622   | 0.622   | 0.622   |
++-----------------------------+--------+-------+--------+---------+---------+---------+
+========== megpeak ==========
+there are 12 cores, currently use core id :0
+Vendor is: ARM, uArch: unknown, frequency: 0Hz
+
+bandwidth: 19.655708 Gbps
+nop throughput: 0.046510 ns 21.500809 GFlops latency: 0.063910 ns :
+ldd throughput: 0.152342 ns 13.128388 GFlops latency: 0.152094 ns :
+ldq throughput: 0.152258 ns 26.271263 GFlops latency: 0.152260 ns :
+stq throughput: 0.229214 ns 17.450979 GFlops latency: 0.229052 ns :
+ldpq throughput: 0.306999 ns 26.058691 GFlops latency: 0.304481 ns :
+lddx2 throughput: 0.228365 ns 17.515785 GFlops latency: 0.228268 ns :
+ld1q throughput: 0.152096 ns 26.299244 GFlops latency: 0.152348 ns :
+eor throughput: 0.228287 ns 17.521770 GFlops latency: 0.915344 ns :
+fmla throughput: 0.228278 ns 35.045067 GFlops latency: 1.826396 ns :
+fmlad throughput: 0.230119 ns 17.382278 GFlops latency: 1.870670 ns :
+fmla_x2 throughput: 0.460813 ns 34.721249 GFlops latency: 3.684854 ns :
+mla throughput: 0.456479 ns 17.525454 GFlops latency: 1.828418 ns :
+fmul throughput: 0.228299 ns 17.520849 GFlops latency: 1.371749 ns :
+mul throughput: 0.456753 ns 8.757469 GFlops latency: 1.905576 ns :
+addp throughput: 0.243296 ns 16.440912 GFlops latency: 0.934770 ns :
+sadalp throughput: 0.458747 ns 8.719403 GFlops latency: 1.827662 ns :
+add throughput: 0.228776 ns 17.484390 GFlops latency: 0.913260 ns :
+fadd throughput: 0.228298 ns 17.520998 GFlops latency: 0.914622 ns :
+smull throughput: 0.456669 ns 8.759081 GFlops latency: 1.827784 ns :
+smlal_4b throughput: 0.459167 ns 17.422857 GFlops latency: 1.878246 ns :
+smlal_8b throughput: 0.456637 ns 35.038773 GFlops latency: 1.827832 ns :
+dupd_lane_s8 throughput: 0.228321 ns 35.038315 GFlops latency: 0.913080 ns :
+mlaq_lane_s16 throughput: 0.456455 ns 35.052750 GFlops latency: 1.828034 ns :
+sshll throughput: 0.456801 ns 17.513096 GFlops latency: 0.915004 ns :
+tbl throughput: 0.228304 ns 70.082146 GFlops latency: 0.912968 ns :
+ins throughput: 0.476851 ns 4.194183 GFlops latency: 1.170401 ns :
+sqrdmulh throughput: 0.474535 ns 8.429307 GFlops latency: 1.864168 ns :
+usubl throughput: 0.232815 ns 17.180990 GFlops latency: 0.941048 ns :
+abs throughput: 0.228821 ns 17.480879 GFlops latency: 0.915206 ns :
+fcvtzs throughput: 0.913184 ns 4.380279 GFlops latency: 1.828154 ns :
+scvtf throughput: 0.914640 ns 4.373306 GFlops latency: 1.877426 ns :
+fcvtns throughput: 0.962002 ns 4.157996 GFlops latency: 1.828404 ns :
+fcvtms throughput: 0.915082 ns 4.371193 GFlops latency: 1.827884 ns :
+fcvtps throughput: 0.913120 ns 4.380586 GFlops latency: 1.828006 ns :
+fcvtas throughput: 0.913058 ns 4.380883 GFlops latency: 1.835548 ns :
+fcvtn throughput: 0.968068 ns 4.131942 GFlops latency: 1.853974 ns :
+fcvtl throughput: 0.920918 ns 4.343493 GFlops latency: 1.828062 ns :
+prefetch_very_long throughput: 13.875875 ns 0.288270 GFlops latency: 0.152134 ns :
+ins_ldd throughput: 0.466184 ns 4.290152 GFlops latency: 0.456463 ns :Test ldd ins dual issue
+ldd_ldx_ins throughput: 1.102401 ns 3.628442 GFlops latency: 0.470635 ns :
+ldqstq throughput: 2.996539 ns 1.334873 GFlops latency: 2.897441 ns :Test ldq stq dual issue
+ldq_fmlaq throughput: 0.230197 ns 34.752773 GFlops latency: 0.228311 ns :
+stq_fmlaq_lane throughput: 0.307087 ns 26.051222 GFlops latency: 2.284403 ns :Test stq fmlaq_lane dual issue
+ldd_fmlad throughput: 0.228333 ns 17.518240 GFlops latency: 0.232967 ns :Test ldd fmlad dual issue
+ldq_fmlaq_sep throughput: 0.228414 ns 35.024055 GFlops latency: 1.862610 ns :Test throughput ldq + 2 x fmlaq
+ldq_fmlaq_lane_sep throughput: 0.228459 ns 35.017155 GFlops latency: 2.285951 ns :Test compute throughput ldq + 2 x fmlaq_lane
+ldd_fmlaq_sep throughput: 0.228462 ns 35.016773 GFlops latency: 1.828018 ns :Test compute throughput ldq + fmlaq
+lds_fmlaq_lane_sep throughput: 0.228407 ns 35.025127 GFlops latency: 2.290483 ns :
+ldd_fmlaq_lane_sep throughput: 0.230262 ns 34.743107 GFlops latency: 2.333297 ns :Test compute throughput ldd + fmlaq_lane
+ldx_fmlaq_lane_sep throughput: 0.236390 ns 33.842449 GFlops latency: 2.291691 ns :
+ldd_ldx_ins_fmlaq_lane_sep throughput: 0.376304 ns 21.259399 GFlops latency: 2.284515 ns :Test compute throughput ldd+fmlaq+ldx+fmlaq+ins+fmlaq
+ldd_nop_ldx_ins_fmlaq_lane_sep throughput: 0.343742 ns 23.273289 GFlops latency: 2.284431 ns :
+ins_fmlaq_lane_1_4_sep throughput: 0.399467 ns 20.026707 GFlops latency: 3.801333 ns :Test compute throughput ins + 4 x fmlaq_lane
+ldd_fmlaq_lane_1_4_sep throughput: 0.233532 ns 34.256542 GFlops latency: 2.293695 ns :Test compute throughput ldd + 4 x fmlaq_lane
+ldq_fmlaq_lane_1_4_sep throughput: 0.228172 ns 35.061264 GFlops latency: 0.228387 ns :Test compute throughput ldq + 4 x fmlaq_lane
+ins_fmlaq_lane_1_3_sep throughput: 0.410772 ns 19.475504 GFlops latency: 3.752310 ns :Test compute throughput ins + 3 x fmlaq_lane
+ldd_fmlaq_lane_1_3_sep throughput: 0.384578 ns 20.802036 GFlops latency: 3.837855 ns :
+ldq_fmlaq_lane_1_3_sep throughput: 0.228546 ns 35.003883 GFlops latency: 0.228357 ns :Test compute throughput ldq + 3 x fmlaq_lane
+ldq_fmlaq_lane_1_2_sep throughput: 0.228180 ns 35.060112 GFlops latency: 0.229373 ns :Test compute throughput ldq + 2 x fmlaq_lane
+ins_fmlaq_lane_sep throughput: 1.168681 ns 6.845322 GFlops latency: 2.284697 ns :
+dupd_fmlaq_lane_sep throughput: 0.684736 ns 11.683328 GFlops latency: 2.324047 ns :
+smlal_8b_addp throughput: 0.481235 ns 33.247795 GFlops latency: 3.213601 ns :
+smlal_8b_dupd throughput: 0.456535 ns 35.046600 GFlops latency: 1.828716 ns :
+ldd_smlalq_sep_8b throughput: 0.456481 ns 35.050747 GFlops latency: 0.456605 ns :Test ldd smlalq dual issue
+ldq_smlalq_sep throughput: 0.456545 ns 35.045834 GFlops latency: 0.458443 ns :Test ldq smlalq dual issue
+lddx2_smlalq_sep throughput: 0.456677 ns 35.035706 GFlops latency: 0.456539 ns :
+smlal_sadalp throughput: 0.456505 ns 35.048904 GFlops latency: 3.771276 ns :
+smull_smlal_sadalp throughput: 0.913568 ns 35.027496 GFlops latency: 5.483886 ns :Test smull smlal dual issue
+smull_smlal_sadalp_sep throughput: 0.460932 ns 34.712257 GFlops latency: 5.590714 ns :
+ins_smlalq_sep_1_2 throughput: 0.555069 ns 28.825258 GFlops latency: 3.415256 ns :
+ldx_ins_smlalq_sep throughput: 0.456641 ns 35.038429 GFlops latency: 3.499666 ns :
+dupd_lane_smlal_s8 throughput: 0.456647 ns 35.038010 GFlops latency: 3.200133 ns :
+ldd_mla_s16_lane_1_4_sep throughput: 0.458814 ns 34.872520 GFlops latency: 0.456715 ns :
+ldrd_sshll throughput: 0.456679 ns 17.517776 GFlops latency: 0.456459 ns :
+sshll_ins_sep throughput: 0.744326 ns 10.747973 GFlops latency: 2.026899 ns :
+

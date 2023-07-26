@@ -44,11 +44,11 @@ class CocoFormat:
         return annotation_info
 
 def convert_via_to_coco(image_dir_path,
-            via_ann_file_path,
-            category_names,
-            output_images_dir_path=None,
-            output_ann_file_path=None,
-            first_category_index=1):
+                        via_ann_file_path,
+                        category_names,
+                        output_images_dir_path=None,
+                        output_ann_file_path=None,
+                        first_category_index=1):
     category_dict = {}
 
     coco_categories = []
@@ -128,12 +128,12 @@ def convert_via_to_coco(image_dir_path,
             area = polygon.area
 
             coco_annotation = CocoFormat.create_annotation_info(annotation_id,
-                                       image_id,
-                                       category_id,
-                                       is_crowd,
-                                       bbox,
-                                       segmentation,
-                                       area)
+                                                                image_id,
+                                                                category_id,
+                                                                is_crowd,
+                                                                bbox,
+                                                                segmentation,
+                                                                area)
             coco_annotations.append(coco_annotation)
             annotation_id += 1
 
@@ -176,10 +176,10 @@ def main():
         output_ann_file_path = output_ann_dir_path / output_ann_file_name
 
         convert_via_to_coco(image_dir_path,
-                via_ann_file_path,
-                category_names,
-                output_images_dir_path=output_images_dir_path,
-                output_ann_file_path=output_ann_file_path)
+                            via_ann_file_path,
+                            category_names,
+                            output_images_dir_path=output_images_dir_path,
+                            output_ann_file_path=output_ann_file_path)
 
 
 if __name__ == '__main__':
