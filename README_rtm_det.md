@@ -69,7 +69,8 @@ python prepare_data.py
 # 4 模型调优
 
 ```
-
+cd ~/mmdet_jetson
+cp model_config.py 
 ```
 
 
