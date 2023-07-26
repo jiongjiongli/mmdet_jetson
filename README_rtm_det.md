@@ -1,4 +1,4 @@
-# 目标检测模型调优及部署到NVIDIA Jetson 平台
+# 目标检测模型调优及部署到NVIDIA Jetson平台
 
 
 
