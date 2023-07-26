@@ -105,7 +105,7 @@ cd ~/mmdet_jetson/mmdetection
 python tools/train.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py
 ```
 
-主要生成一下两个文件，需要下载到自己的电脑上：
+主要生成以下两个文件，需要下载到自己的电脑上：
 
 1. 模型文件路径： `~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/epoch_40.pth`
 2. 模型训练配置文件路径（及没有`__base__`部分，后面模型转换部分会用到）：`~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/rtmdet_tiny_1xb12-40e_balloon.py`
