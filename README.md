@@ -4,7 +4,7 @@
 
 本项目实现了对目标检测模型的微调，功能测试，以及在NVIDIA Jetson 平台上的部署和速度测试。
 
-本项目在 [北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，最后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。
+本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，最后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。
 
 - 项目任务详细： [点击](https://github.com/open-mmlab/OpenMMLabCamp/discussions/562)
 - Github 仓库链接： [点击](https://github.com/jiongjiongli/mmdet_jetson)
@@ -70,7 +70,9 @@ pip install numpy==1.23.1
 
 本项目选取数据集为74张气球图片，其中61张作为训练集，13张作为验证和测试集。
 
-由于数据标注文件是via格式的，因此转化为了coco格式。
+![image_data](data/images/2685563244_b0d5f7eb67_b.jpg)
+
+由于数据标注文件是via格式的，因此需要转化为coco格式。
 
 数据处理的命令为：
 
@@ -81,7 +83,7 @@ wget -P ~/mmdet_jetson/data/ https://download.openmmlab.com/mmyolo/data/balloon_
 cd ~/mmdet_jetson/data
 unzip balloon_dataset.zip
 
-# 2. via format to coco.
+# 2. Convert via format to coco.
 cd ~/mmdet_jetson
 python prepare_data.py
 
@@ -428,4 +430,4 @@ def main():
 
 # 9 致谢
 
-本项目受到[OpenMMLab](https://github.com/open-mmlab)和[Seeed](https://wiki.seeedstudio.com/)多位老师的指导，在此表示衷心感谢！也感谢Green，小喵的热情帮助！并感谢樛木同学的热情交流！
+本项目受到[OpenMMLab](https://github.com/open-mmlab)和[Seeed](https://wiki.seeedstudio.com/)多位老师的指导，在此表示衷心感谢！感谢[北京超级云计算中心](https://cloud.blsc.cn/)平台提供的算力，感谢Green，小喵的热情帮助，也感谢樛木同学的热情交流！
