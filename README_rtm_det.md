@@ -42,6 +42,7 @@ pip install shapely
 mkdir ~/mmdet_jetson/model
 wget -P ~/mmdet_jetson/model/ https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth
 
+ln -s ~/mmdet_jetson/model ~/mmdet_jetson/mmdetection/model
 ```
 
 
@@ -62,6 +63,7 @@ unzip balloon_dataset.zip
 cd ~/mmdet_jetson
 python prepare_data.py
 
+ln -s ~/mmdet_jetson/data ~/mmdet_jetson/mmdetection/data
 ```
 
 预处理
@@ -70,7 +72,10 @@ python prepare_data.py
 
 ```
 cd ~/mmdet_jetson
-cp model_config.py 
+cp ~/mmdet_jetson/rtmdet_tiny_1xb12-40e_balloon.py ~/mmdet_jetson/mmdetection/configs/rtmdet/
+
+cd ~/mmdet_jetson/mmdetection
+python tools/test.py ~/mmdet_jetson/mmdetection/configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py
 ```
 
 

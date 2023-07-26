@@ -34,7 +34,7 @@ stage2_num_epochs = 5
 base_lr = train_batch_size_per_gpu * 0.004 / (32*8)
 
 # 采用 COCO 预训练权重
-load_from = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth'  # noqa
+load_from = './model/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth'  # noqa
 
 model = dict(
     # 考虑到数据集太小，且训练时间很短，我们把 backbone 完全固定
