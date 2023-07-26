@@ -4,7 +4,7 @@
 
 本项目实现了对目标检测模型的微调，功能测试，以及在NVIDIA Jetson 平台上的部署和速度测试。
 
-本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，最后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。
+本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，之后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。最后进行了MMDeploy模型转换的源码分析。
 
 - 项目任务详细： [点击](https://github.com/open-mmlab/OpenMMLabCamp/discussions/562)
 - Github 仓库链接： [点击](https://github.com/jiongjiongli/mmdet_jetson)
@@ -426,7 +426,7 @@ def main():
 
 # 8 总结和评估
 
-本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能进行了源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
+本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能的源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
 
 # 9 致谢
 
