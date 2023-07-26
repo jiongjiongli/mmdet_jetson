@@ -182,7 +182,7 @@ ONE (t=0.02s).
 
 2 输入内容如下图所示：
 
-<img src="D:\proj\git\mmdet_jetson\data\images\model_convert.png" alt="model_convert.png" style="zoom: 100%;" />
+<img src="data/images/model_convert.png" alt="model_convert.png" style="zoom: 100%;" />
 
 ​	"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"
 
@@ -239,9 +239,9 @@ run.txt
 
 进一步分析一下其中的可视化结果：
 
-- pth模型测试可视化结果：![pth文件测试结果可视化](D:\proj\git\mmdet_jetson\data\test\fine_tuned\ap\output_pytorch.jpg)
+- pth模型测试可视化结果：![pth文件测试结果可视化](data/test/fine_tuned/ap/output_pytorch.jpg)
 
-- tensorrt模型测试可视化结果：![pth文件测试结果可视化](D:\proj\git\mmdet_jetson\data\test\fine_tuned\ap\output_tensorrt.jpg)
+- tensorrt模型测试可视化结果：![pth文件测试结果可视化](data/test/fine_tuned/ap/output_tensorrt.jpg)
 
 可见onnx和tensorrt的依然保持了比较高的准确率，几乎没有精度损失。
 
@@ -253,7 +253,7 @@ run.txt
 
 2 输入内容如下图所示：
 
-<img src="D:\proj\git\mmdet_jetson\data\images\speed_test.png" alt="speed_test.png" style="zoom: 100%;" />
+<img src="data/images/speed_test.png" alt="speed_test.png" style="zoom: 100%;" />
 
 ​	任务类型：选择"mmdet-det v3.0.0rc5"
 
