@@ -85,10 +85,10 @@ def convert_via_to_coco(image_dir_path,
             image_width, image_height = image.size
 
         image_info = CocoFormat.create_image_info(
-                              image_id,
-                              Path(image_file_name).name,
-                              image_height,
-                              image_width
+                                                  image_id,
+                                                  Path(image_file_name).name,
+                                                  image_height,
+                                                  image_width
         )
 
         coco_images.append(image_info)
@@ -103,8 +103,8 @@ def convert_via_to_coco(image_dir_path,
             if category_id is None:
                 warn_info_format = r'Warning: Ignore because category_name {} from image_file_name {} not in category_names {}'
                 warn_info = warn_info_format.format(category_name,
-                                  image_file_name,
-                                  category_names)
+                                                    image_file_name,
+                                                    category_names)
                 print(warn_info)
                 continue
 
