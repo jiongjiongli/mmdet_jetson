@@ -184,7 +184,7 @@ ONE (t=0.02s).
 
 <img src="data/images/model_convert.png" alt="model_convert.png" style="zoom: 100%;" />
 
-​	"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"
+​	"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"。
 
 ​	"模型训练配置"：上传步骤5.1下载的的模型训练配置文件。
 
@@ -255,13 +255,13 @@ run.txt
 
 <img src="data/images/speed_test.png" alt="speed_test.png" style="zoom: 100%;" />
 
-​	任务类型：选择"mmdet-det v3.0.0rc5"
+​	任务类型：选择"mmdet-det v3.0.0rc5"。
 
 ​	模型：上传步骤6.1下载的zip文件。
 
 ​	测试数据：从步骤4的数据集中选择一张图片上传。
 
-​	测速设备：选择"<span class="ant-select-selection-item-content">Seeed Jetson Orin</span>"
+​	测速设备：选择"<span class="ant-select-selection-item-content">Seeed Jetson Orin</span>"。
 
 3 点击"提交任务"，等待速度测试完成。
 
