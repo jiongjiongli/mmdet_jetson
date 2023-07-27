@@ -166,7 +166,7 @@ ONE (t=0.02s).
 07/26 21:01:53 - mmengine - INFO - Epoch(test) [13/13]  coco/bbox_mAP: 0.7000  coco/bbox_mAP_50: 0.8180  coco/bbox_mAP_75: 0.7760  coco/bbox_mAP_s: 0.0250  coco/bbox_mAP_m: 0.5080  coco/bbox_mAP_l: 0.8530  data_time: 0.0266  time: 0.0626
 ```
 
-可见训练后性能提升还是比较明显的，AP从Base模型的接近0%提升到了70%。
+可见训练后性能提升还是比较明显的，AP从Base模型的接近20%提升到了70%。
 
 - 本次训练日志：[点击](./data/train/20230726_181747.log)
 - Base模型本次功能测试日志：[点击](data/test/base/ap/20230726_205848.log)
@@ -432,7 +432,7 @@ def main():
 
 # 8 总结和评估
 
-本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近0%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能的源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
+本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近20%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能的源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
 
 整个项目最耗时的部分是使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 进行模型测速。因为[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 还存在一些bug，也没有如何针对NVIDIA Jetson平台测速的的use case，所以使用起来不太方便。
 
