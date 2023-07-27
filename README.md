@@ -41,7 +41,6 @@ wget -P ~/mmdet_jetson/model/ https://download.openmmlab.com/mmdetection/v3.0/rt
 ln -s ~/mmdet_jetson/model ~/mmdet_jetson/mmdetection/model
 
 # 4. Prepare python, cuda, gcc.
-module avail
 module load python/3.8.12-gcc-4.8.5-jbm
 module load cuda/11.4.0-gcc-4.8.5-3cj
 module load gcc/9.4.0-gcc-4.8.5
@@ -60,7 +59,7 @@ pip install mmcv==2.0.0rc4 -f https://download.openmmlab.com/mmcv/dist/cu113/tor
 
 pip install mmdet==3.0.0rc5
 
-pip install shapely
+pip install shapely==2.0.1
 pip install numpy==1.23.1
 ```
 
