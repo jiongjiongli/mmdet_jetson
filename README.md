@@ -13,7 +13,7 @@
 
 本项目选择了实时性和准确率都很高的一阶段[RTMDet](https://paperswithcode.com/paper/rtmdet-an-empirical-study-of-designing-real)作为base模型。
 
-Base / pretrain 模型文件：[点击](https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth)
+Base / Pretrained 模型文件：[点击](https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_tiny_8xb32-300e_coco/rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth)
 
 # 3 环境准备
 
@@ -68,7 +68,7 @@ pip install numpy==1.23.1
 
 # 4 数据集和数据处理
 
-本项目选取数据集为74张气球图片，其中61张作为训练集，13张作为验证和测试集。
+本项目选择的数据集为74张气球图片，其中61张作为训练集，13张作为验证和测试集。
 
 ![image_data](data/images/2685563244_b0d5f7eb67_b.jpg)
 
@@ -243,7 +243,7 @@ run.txt
 
 - tensorrt模型测试可视化结果：![pth文件测试结果可视化](data/test/fine_tuned/ap/output_tensorrt.jpg)
 
-可见onnx和tensorrt的依然保持了比较高的准确率，几乎没有精度损失。
+可见tensorrt格式依然保持了较高的准确率，几乎没有精度损失。
 
 ## 6.2 模型速度测试
 
@@ -408,7 +408,7 @@ def main():
         device=args.device,
         uri=args.uri)
         
-    # onnx / tensorrt model test Visualization.
+    # onnx / tensorrt model test visualization.
     create_process(
         f'visualize {backend.value} model',
         target=visualize_model,
@@ -417,7 +417,7 @@ def main():
         kwargs=extra,
         ret_value=ret_value)
 
-    # pth model test Visualization.
+    # pth model test visualization.
     create_process(
         'visualize pytorch model',
         target=visualize_model,
