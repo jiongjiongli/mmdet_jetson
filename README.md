@@ -166,7 +166,7 @@ ONE (t=0.02s).
 07/26 21:01:53 - mmengine - INFO - Epoch(test) [13/13]  coco/bbox_mAP: 0.7000  coco/bbox_mAP_50: 0.8180  coco/bbox_mAP_75: 0.7760  coco/bbox_mAP_s: 0.0250  coco/bbox_mAP_m: 0.5080  coco/bbox_mAP_l: 0.8530  data_time: 0.0266  time: 0.0626
 ```
 
-可见训练后性能提升还是比较明显的，AP从Base模型的接近20%提升到了70%。
+可见训练后AP提升还是比较明显的，从Base模型的接近20%提升到了70%。
 
 - 本次训练日志：[点击](./data/train/20230726_181747.log)
 - Base模型本次功能测试日志：[点击](data/test/base/ap/20230726_205848.log)
