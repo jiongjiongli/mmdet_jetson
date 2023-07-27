@@ -1,4 +1,4 @@
-# 目标检测模型调优及部署到NVIDIA Jetson平台
+# 目标检测模型调优及在NVIDIA Jetson平台上的部署
 
 # 1 项目介绍
 
