@@ -6,7 +6,7 @@
 
 本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，之后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。最后对MMDeploy模型转换功能的源码进行了分析。
 
-- 项目任务详细： [点击](https://github.com/open-mmlab/OpenMMLabCamp/discussions/562)
+- 项目任务详情： [点击](https://github.com/open-mmlab/OpenMMLabCamp/discussions/562)
 - Github 仓库链接： [点击](https://github.com/jiongjiongli/mmdet_jetson)
 
 # 2 模型选择
@@ -72,7 +72,7 @@ pip install numpy==1.23.1
 
 ![image_data](data/images/2685563244_b0d5f7eb67_b.jpg)
 
-由于数据标注文件是via格式的，因此需要转化为coco格式。
+由于数据标注文件是VIA (VGG Image Annotator)格式的，因此需要转化为COCO格式。
 
 数据处理的命令为：
 
@@ -83,7 +83,7 @@ wget -P ~/mmdet_jetson/data/ https://download.openmmlab.com/mmyolo/data/balloon_
 cd ~/mmdet_jetson/data
 unzip balloon_dataset.zip
 
-# 2. Convert via format to coco.
+# 2. Convert VIA format to COCO.
 cd ~/mmdet_jetson
 python prepare_data.py
 
@@ -178,40 +178,34 @@ ONE (t=0.02s).
 
 ### 6.1.1 步骤
 
-1 进入[模型转换页面](https://platform.openmmlab.com/deploee/task-convert-list)， 点击"模型转换"，点击“新建转换任务”。
+1. 进入[模型转换页面](https://platform.openmmlab.com/deploee/task-convert-list)， 点击"模型转换"，点击“新建转换任务”。
 
-2 输入内容如下图所示：
+2. 输入内容如下图所示：<img src="data/images/model_convert.png" alt="model_convert.png" style="zoom: 100%;" />"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"。
 
-<img src="data/images/model_convert.png" alt="model_convert.png" style="zoom: 100%;" />
+    "模型训练配置"：上传section 5.1下载的的模型训练配置文件。
 
-​	"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"。
+    "pth 下载地址"：上传section 5.1下载的的模型文件。
 
-​	"模型训练配置"：上传步骤5.1下载的的模型训练配置文件。
+    "目标 runtime"：选择"jetson-orin+jetpack5.0.1"。
 
-​	"pth 下载地址"：上传步骤5.1下载的的模型文件。
+    "input shape"：关。文本框内输入：
 
-​	"目标 runtime"：选择"jetson-orin+jetpack5.0.1"。
+    ```
+    [input]
+    min_shape = [1, 3, 640, 640]
+    opt_shape = [1, 3, 640, 640]
+    max_shape = [1, 3, 640, 640]
+    ```
 
-​	"input shape"：关。
+    "SDK 部署"： 开。
 
-​	文本框内输入：
+    "测试数据"：从section 4的数据集中选择一张图片上传。
 
-```
-[input]
-min_shape = [1, 3, 640, 640]
-opt_shape = [1, 3, 640, 640]
-max_shape = [1, 3, 640, 640]
-```
+    "自定义选项"：关。
 
-​	"SDK 部署"： 开。
+3. 点击"提交任务"，等待转换完成。
 
-​	"测试数据"：从步骤4的数据集中选择一张图片上传。
-
-​	"自定义选项"：关。
-
-3 点击"提交任务"，等待转换完成。
-
-4 转换完成后，点击"下载模型"，下载zip文件。
+4. 转换完成后，点击"下载模型"，下载zip文件。
 
 ### 6.1.2 结果文件列表
 
@@ -249,23 +243,19 @@ run.txt
 
 ### 6.2.1 步骤
 
-1 进入[模型测速页面](https://platform.openmmlab.com/deploee/task-profile-list)， 点击"模型测速"，点击“新建测速任务”。
+1. 进入[模型测速页面](https://platform.openmmlab.com/deploee/task-profile-list)， 点击"模型测速"，点击“新建测速任务”。
 
-2 输入内容如下图所示：
+2. 输入内容如下图所示：<img src="data/images/speed_test.png" alt="speed_test.png" style="zoom: 100%;" />"任务类型"：选择"mmdet-det v3.0.0rc5"。
 
-<img src="data/images/speed_test.png" alt="speed_test.png" style="zoom: 100%;" />
+    "模型"：上传section 6.1下载的zip文件。
 
-​	任务类型：选择"mmdet-det v3.0.0rc5"。
+    "测试数据"：从section 4的数据集中选择一张图片上传。
 
-​	模型：上传步骤6.1下载的zip文件。
+    "测速设备"：选择"<span class="ant-select-selection-item-content">Seeed Jetson Orin</span>"。
 
-​	测试数据：从步骤4的数据集中选择一张图片上传。
+3. 点击"提交任务"，等待速度测试完成。
 
-​	测速设备：选择"<span class="ant-select-selection-item-content">Seeed Jetson Orin</span>"。
-
-3 点击"提交任务"，等待速度测试完成。
-
-4 速度测试完成后，点击"查看测速报告"。
+4. 速度测试完成后，点击"查看测速报告"。
 
 ### 6.2.2 测试结果
 
