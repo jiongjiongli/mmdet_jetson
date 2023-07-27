@@ -4,7 +4,7 @@
 
 本项目实现了对目标检测模型的微调，功能测试，以及在NVIDIA Jetson 平台上的部署和速度测试。实验表明：(1) 微调后的模型精度有明显提升，(2) [MMDeploy](https://github.com/open-mmlab/mmdeploy)转化后的tensorrt格式的目标检测模型几乎没有精度损失，且有较快的推理速度。
 
-本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，之后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。最后进行了MMDeploy模型转换的源码分析。
+本项目在[北京超级云计算中心](https://cloud.blsc.cn/)平台上微调目标检测模型[RTMDet](https://github.com/open-mmlab/mmdetection/tree/v3.0.0rc5/configs/rtmdet)，并进行功能测试。然后使用OpenMMLab的[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 模型部署平台把模型从pth格式转化为onnx和tensorrt格式，之后使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 上的NVIDIA Jetson平台进行速度测试。最后对MMDeploy模型转换功能的源码进行了分析。
 
 - 项目任务详细： [点击](https://github.com/open-mmlab/OpenMMLabCamp/discussions/562)
 - Github 仓库链接： [点击](https://github.com/jiongjiongli/mmdet_jetson)
