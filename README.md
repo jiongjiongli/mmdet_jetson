@@ -422,7 +422,7 @@ def main():
 
 本项目完成了目标检测调优与部署测试的整个流程，进行了功能测试和速度测试。测试结果显示，模型调优以后AP有了明显的提升（从接近20%提升到了70%），转换后的模型也达到了较快的推理速度（单张图片平均延迟为103毫秒）。最后进行了[MMDeploy](https://github.com/open-mmlab/mmdeploy)模型转换功能的源码分析，希望对大家深入了解[MMDeploy](https://github.com/open-mmlab/mmdeploy)有所帮助。
 
-整个项目最耗时的部分是使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 进行模型测速。因为[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 还存在一些bug，也没有如何针对NVIDIA Jetson平台测速的的use case，所以使用起来不太方便。另外有个疑问：数据的前后处理是否也可以转化为tensorrt完成？目前好像只有部分后处理是转化为了tensorrt的，这也许是MMDeploy可以优化的一个方向。
+整个项目最耗时的部分是使用[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN) 进行模型测速。因为对[deploee](https://platform.openmmlab.com/deploee?lang=zh-CN)不太熟悉，也没有看到如何针对NVIDIA Jetson平台测速的的use case。另外有个疑问：数据的前后处理是否也可以转化为tensorrt完成？目前好像只有部分后处理是转化为了tensorrt的，这也许是MMDeploy可以优化的一个方向。
 
 # 9 致谢
 
