@@ -106,10 +106,10 @@ cd ~/mmdet_jetson/mmdetection
 python tools/train.py configs/rtmdet/rtmdet_tiny_1xb12-40e_balloon.py
 ```
 
-主要生成以下两个文件，需要下载到自己的电脑上：
+主要生成以下两个文件(后面 section 6.1.1 模型转换会用到)，需要下载到自己的电脑上：
 
-- 模型文件路径： `~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/epoch_40.pth`
-- 模型训练配置文件路径（及没有`__base__`部分，后面模型转换部分会用到）：`~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/rtmdet_tiny_1xb12-40e_balloon.py`
+- 模型文件路径： `~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/epoch_40.pth` 
+- 模型训练配置文件路径（文件内没有`__base__`部分）：`~/mmdet_jetson/mmdetection/work_dirs/rtmdet_tiny_1xb12-40e_balloon/rtmdet_tiny_1xb12-40e_balloon.py`
 
 ## 5.2 功能测试
 
@@ -181,9 +181,9 @@ ONE (t=0.02s).
 
 2. 输入内容如下图所示：<img src="data/images/model_convert.png" alt="model_convert.png" style="zoom: 100%;" />"OpenMMLab 算法"：选择"mmdet-det v3.0.0rc5"。
 
-    "模型训练配置"：上传section 5.1下载的的模型训练配置文件。
+    "模型训练配置"：上传 section 5.1下载的的模型训练配置文件。
 
-    "pth 下载地址"：上传section 5.1下载的的模型文件。
+    "pth 下载地址"： 上传 section 5.1下载的的模型文件。
 
     "目标 runtime"：选择"jetson-orin+jetpack5.0.1"。
 
@@ -198,13 +198,13 @@ ONE (t=0.02s).
 
     "SDK 部署"： 开。
 
-    "测试数据"：从section 4的数据集中选择一张图片上传。
+    "测试数据"：从 section 4 的数据集中选择一张图片上传。
 
     "自定义选项"：关。
 
 3. 点击"提交任务"，等待转换完成。
 
-4. 转换完成后，点击"下载模型"，下载zip文件。
+4. 转换完成后，点击"下载模型"，下载zip文件。后面 section 6.2.1 模型速度测试会用到。
 
 ### 6.1.2 结果文件列表
 
@@ -246,9 +246,9 @@ run.txt
 
 2. 输入内容如下图所示：<img src="data/images/speed_test.png" alt="speed_test.png" style="zoom: 100%;" />"任务类型"：选择"mmdet-det v3.0.0rc5"。
 
-    "模型"：上传section 6.1下载的zip文件。
+    "模型"：上传 section 6.1.1下载的zip文件。
 
-    "测试数据"：从section 4的数据集中选择一张图片上传。
+    "测试数据"：从 section 4 的数据集中选择一张图片上传。
 
     "测速设备"：选择"<span class="ant-select-selection-item-content">Seeed Jetson Orin</span>"。
 
